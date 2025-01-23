@@ -1,0 +1,25 @@
+- name: Upgrade packages
+  hosts: all
+  become: true
+  tasks:
+    - name: Aggiornamento dei pacchetti tramite yum
+      ansible.builtin.yum:
+        name: '*'
+        state: latest
+      when:
+        - ansible_pkg_mgr == "yum"
+
+    - name: Aggiornamento dei pacchetti tramite dnf
+      ansible.builtin.dnf:
+        name: '*'
+        state: latest
+      when:
+        - ansible_pkg_mgr == "dnf"
+
+    - name: Aggiornamento dei pacchetti tramite package apt
+      ansible.builtin.apt:
+        update_cache: yes
+        name: '*'
+        state: latest
+      when:
+        - ansible_pkg_mgr == "apt"

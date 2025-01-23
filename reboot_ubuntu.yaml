@@ -1,0 +1,7 @@
+- name: Reboot Macchine Ubuntu
+  hosts: all
+  become: true
+  tasks:
+    - name: Riavvio delle macchine ubuntu
+      ansible.builtin.reboot:
+        reboot_timeout: 300

@@ -1,0 +1,12 @@
+- name: Aggiorna e fai Upgrade tramite apt
+  hosts: all
+  become: true
+  tasks:
+    - name: Aggiornamento repository tramite apt
+      ansible.builtin.apt:
+        update_cache: yes
+    - name: Upgrade dei pacchetti tramite apt
+      ansible.builtin.apt:
+        name: "*"
+        state: latest
+

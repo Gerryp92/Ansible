@@ -1,0 +1,9 @@
+- name: Upgrade yum packages
+  hosts: all
+  become: true
+  tasks:
+    - name: Aggiornamento dei pacchetti tramite yum
+      ansible.builtin.yum:
+        name: '*'
+        state: latest
+
