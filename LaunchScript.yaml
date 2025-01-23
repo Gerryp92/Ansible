@@ -1,8 +1,8 @@
-- name: Lancia script Eset nella cartella remota /mediatech
+- name: Launch remote script
   hosts: all
   become: true
   tasks:
-    - name: Launch script Eset after change directory
-      ansible.builtin.shell: ./PROTECTAgentInstaller.sh
+    - name: Launch script after change folder
+      ansible.builtin.shell: ./ScriptToUse.sh
       args:
-        chdir: /mediatech
+        chdir: /path/to/folder
