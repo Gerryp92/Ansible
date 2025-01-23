@@ -1,0 +1,9 @@
+- name: Copy file from source to destination
+  hosts: all
+  become: true
+  tasks:
+    - name: Copy file 
+      ansible.builtin.copy:
+        src: /path/to/folder/file
+        dest: /path/to/folder/destination
+        mode: '0744'

@@ -1,0 +1,11 @@
+- name: Disinstallazione Application
+  hosts: all
+  # vars:
+  #  ansible_python_interpreter: /usr/bin/python3.10
+  become: true
+  tasks:
+    - name: Removing app
+      ansible.builtin.package:
+        name: App Name
+        state: absent
+
